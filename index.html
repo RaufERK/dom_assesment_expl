@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkpoint DOM Events</title>
+  <script defer>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const div = document.createElement('div');
+        div.innerText = event.target.message.value;
+        div.className = 'message';
+        document.getElementById('messages').appendChild(div);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="messages"></div>
+  <form>
+    Сообщение: <input name="message" type="text" />
+    <button type="submit">Добавить</button>
+  </form>
+</body>
+
+</html>
